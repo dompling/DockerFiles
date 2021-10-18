@@ -9,7 +9,7 @@
 > Docker-compose 部署
 
 ```yml
-version: '1.0'
+version: '2.2'
 services:
   substore:
     image: domplingyaya/sub-store:dev
