@@ -5,6 +5,7 @@ RUN apt-get install -y wget unzip git cron vim nginx & npm install -g pm2 & mkdi
 ENV TZ=Asia/Shanghai
 
 ENV Sourcepath="https://github.com/dompling/Sub-Store.git"
+ENV domian="/"
 
 COPY /Sub-Store/nginx/* /etc/nginx/config.d
 
