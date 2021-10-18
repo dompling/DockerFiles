@@ -1,4 +1,4 @@
-  
+
 FROM node
 RUN apt-get update
 RUN apt-get install -y wget unzip git cron vim nginx & npm install -g pm2 & mkdir /Sub-Store
@@ -11,6 +11,8 @@ COPY /Sub-Store/nginx/* /etc/nginx/config.d
 
 WORKDIR /Sub-Store
 RUN git clone ${Sourcepath} /Sub-Store
+
+CMD cd /Sub-Store/backend npm install & pm2 start sub-store.js
 
 
 
