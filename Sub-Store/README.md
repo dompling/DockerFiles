@@ -21,7 +21,7 @@ services:
     ports:
       - '6080:6080'
     environment:
-      - DOMIAN: 'http://sub.store'
+      - DOMIAN='http://sub.store'
 ```
 
 - 将上面内容调整后放到服务器 `substore/docker-compose.yml`中
