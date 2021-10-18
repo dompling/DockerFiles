@@ -1,0 +1,13 @@
+  
+FROM node
+RUN apt-get update
+RUN apt-get install -y wget unzip git cron vim nginx & npm install -g pm2
+ENV TZ=Asia/Shanghai
+
+ENV Sourcepath="https://github.com/dompling/Sub-Store.git"
+
+WORKDIR /Sub-Store
+RUN git clone -b ${Sourcepath} /Sub-Store
+WORKDIR /Sub-Store
+COPY web/nginx/* /etc/nginx/config.d
+RUN nginx -c /etc/nginx/nginx.conf & nginx -s reload

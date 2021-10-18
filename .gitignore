@@ -1,0 +1,4 @@
+node_module/*
+.DS_Store
+.idea
+.history
