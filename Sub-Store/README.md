@@ -24,6 +24,14 @@ services:
     environment:
         - DOMIAN: "http://sub.store"
 ```
+- 将上面内容调整后放到服务器 `substore/docker-compose.yml`中
+- 目录文件配置好之后在 `substore`目录执行  
+ `docker-compose up -d` 启动；  
+ `docker-compose logs` 打印日志扫码登录；  
+ `docker-compose pull` 更新镜像；  
+ `docker-compose stop` 停止容器；  
+ `docker-compose restart` 重启容器；  
+ `docker-compose down` 停止并删除容器； 
 
 > Docker 命令
 ```
