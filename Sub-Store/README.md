@@ -16,8 +16,6 @@ services:
     container_name: substore
     restart: unless-stopped
     shm_size: 2gb
-    volumes:
-      - '$PWD/Sub-Store:/Sub-Store'
     ports:
       - '6080:6080'
     environment:
