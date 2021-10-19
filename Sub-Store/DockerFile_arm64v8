@@ -1,3 +1,4 @@
+FROM alpine AS builder
 
 FROM arm64v8/node
 
