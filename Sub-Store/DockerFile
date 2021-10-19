@@ -11,9 +11,9 @@ ENV TZ=Asia/Shanghai
 ENV Sourcepath="https://github.com/dompling/Sub-Store.git"
 ENV DMIAN="/"
 
-COPY /Sub-Store/nginx/front.conf /etc/nginx/config.d
-
 WORKDIR /Sub-Store
+COPY nginx/front.conf /etc/nginx/config.d
+
 
 RUN git clone ${Sourcepath} /Sub-Store \
      && cd /Sub-Store/backend \
