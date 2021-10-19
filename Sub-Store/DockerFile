@@ -14,7 +14,11 @@ ENV DMIAN="/"
 COPY /Sub-Store/nginx/* /etc/nginx/config.d
 
 WORKDIR /Sub-Store
-RUN git clone ${Sourcepath} /Sub-Store
+RUN git clone ${Sourcepath} /Sub-Store \
+     && cd /Sub-Store/backend \
+     && npm install \
+     && cd /Sub-Store/web \
+     && npm install
 
 # CMD cd /Sub-Store/backend && npm install && pm2 start sub-store.js && cd /Sub-Store/web && npm install
 
