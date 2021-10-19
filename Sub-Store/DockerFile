@@ -23,7 +23,7 @@ RUN git clone ${Sourcepath} /Sub-Store \
      && nginx -c /etc/nginx/nginx.conf \
      && nginx -s reload
 
-CMD cd /Sub-Store/backend && pm2 start
+CMD cd /Sub-Store/backend && pm2 start sub-store.js && cron -f
 
 
 
