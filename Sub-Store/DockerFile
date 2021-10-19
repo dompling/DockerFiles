@@ -18,7 +18,9 @@ RUN git clone ${Sourcepath} /Sub-Store \
      && cd /Sub-Store/backend \
      && npm install \
      && cd /Sub-Store/web \
-     && npm install
+     && npm install \
+     && nginx -c /etc/nginx/config.d \
+     && nginx -s reload
 
 # CMD cd /Sub-Store/backend && npm install && pm2 start sub-store.js && cd /Sub-Store/web && npm install
 
