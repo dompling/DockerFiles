@@ -22,9 +22,7 @@ RUN git clone ${Sourcepath} /git \
 
 RUN cp -r /git/nginx/front.conf /etc/nginx/conf.d \
     && mkdir /Sub-Store \
-    && cp -r /git/nginx /Sub-Store \
-    && cp -r /git/web /Sub-Store \
-    && cp -r /git/backend /Sub-Store
+    && cp -r /git/* /Sub-Store 
 
 CMD cd /Sub-Store/backend && pm2 start sub-store.js \
     && chmod -R 777 /Sub-Store \
