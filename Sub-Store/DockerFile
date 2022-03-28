@@ -21,9 +21,9 @@ RUN git clone ${Sourcepath} /git \
     && npm run build \
     && cp -r /git/nginx/front.conf /etc/nginx/conf.d \
     && mkdir /Sub-Store
-    
 
-CMD cp -r /git/* /Sub-Store \
+
+CMD cp -rf /git/. /Sub-Store \
     cd /Sub-Store/backend && pm2 start sub-store.js \
     && chmod -R 777 /Sub-Store \
     && nginx -c /etc/nginx/nginx.conf \
