@@ -5,7 +5,8 @@ RUN apt-get update
 RUN apt-get install -y git nginx \
     && npm install -g pm2 \
     && npm install -g cnpm \
-    && mkdir /git
+    && mkdir /git \
+    && mkdir /Sub-Store
 
 ENV TZ=Asia/Shanghai
 
@@ -20,11 +21,11 @@ RUN git clone ${Sourcepath} /git \
     && cnpm install \
     && npm run build \
     && cp -r /git/nginx/front.conf /etc/nginx/conf.d \
-    && mkdir /Sub-Store
+    && cp -r /git/. /Sub-Store 
 
 
-CMD cp -rf /git/. /Sub-Store \
-    cd /Sub-Store/backend && pm2 start sub-store.js \
+CMD  cp -r /git/. /Sub-Store\
+    && cd /Sub-Store/backend && pm2 start sub-store.js \
     && chmod -R 777 /Sub-Store \
     && nginx -c /etc/nginx/nginx.conf \
     && nginx -s reload
