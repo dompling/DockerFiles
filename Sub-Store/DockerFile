@@ -1,9 +1,10 @@
 
-FROM node
+FROM node:16.3.0
 
 RUN apt-get update
 RUN apt-get install -y wget unzip git cron vim nginx \
     && npm install -g pm2 \
+    && npm install -g cnpm \
     && mkdir /Sub-Store
 
 ENV TZ=Asia/Shanghai
@@ -14,9 +15,9 @@ ENV DMIAN="/"
 WORKDIR /Sub-Store
 RUN git clone ${Sourcepath} /Sub-Store \
      && cd /Sub-Store/backend \
-     && npm install \
+     && cnpm install \
      && cd /Sub-Store/web \
-     && npm install \
+     && cnpm install \
      && npm run build
 
 RUN cp -r /Sub-Store/nginx/front.conf /etc/nginx/conf.d
