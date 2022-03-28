@@ -5,29 +5,33 @@ RUN apt-get update
 RUN apt-get install -y wget unzip git cron vim nginx \
     && npm install -g pm2 \
     && npm install -g cnpm \
-    && mkdir /Sub-Store
+    && mkdir /git
 
 ENV TZ=Asia/Shanghai
 
 ENV Sourcepath="https://github.com/dompling/Sub-Store.git"
 ENV DMIAN="/"
 
-WORKDIR /Sub-Store
-RUN git clone ${Sourcepath} /Sub-Store \
-     && cd /Sub-Store/backend \
-     && cnpm install \
-     && cd /Sub-Store/web \
-     && cnpm install \
-     && npm run build
+WORKDIR /git
+RUN git clone ${Sourcepath} /git \
+    && cd /git/backend \
+    && cnpm install \
+    && cd /git/web \
+    && cnpm install \
+    && npm run build
 
-RUN cp -r /Sub-Store/nginx/front.conf /etc/nginx/conf.d
+RUN cp -r /git/nginx/front.conf /etc/nginx/conf.d \
+    && mkdir /Sub-Store \
+    && cp -r /git/nginx /Sub-Store \
+    && cp -r /git/web /Sub-Store \
+    && cp -r /git/backend /Sub-Store
 
 CMD cd /Sub-Store/backend && pm2 start sub-store.js \
-    && chmod -R 777 /Sub-Store \ 
+    && chmod -R 777 /SubData \
     && nginx -c /etc/nginx/nginx.conf \
     && nginx -s reload\
     && cron -f
-    
+
 
 
 
