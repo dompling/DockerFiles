@@ -2,7 +2,7 @@
 FROM node:16.3.0
 
 RUN apt-get update
-RUN apt-get install -y git vi nginx \
+RUN apt-get install -y git nginx \
     && npm install -g pm2 \
     && npm install -g cnpm \
     && mkdir /git
@@ -18,9 +18,8 @@ RUN git clone ${Sourcepath} /git \
     && cnpm install \
     && cd /git/web \
     && cnpm install \
-    && npm run build
-
-RUN cp -r /git/nginx/front.conf /etc/nginx/conf.d \
+    && npm run build \
+    && cp -r /git/nginx/front.conf /etc/nginx/conf.d \
     && mkdir /Sub-Store \
     && cp -r /git/* /Sub-Store 
 
