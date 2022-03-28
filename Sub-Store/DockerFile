@@ -28,4 +28,4 @@ CMD  cp -r /git/. /Sub-Store\
     && cd /Sub-Store/backend && pm2 start sub-store.js \
     && nginx -c /etc/nginx/nginx.conf \
     && nginx -s reload \
-    && pm2 logs -tf sub-store
+    && pm2 log sub-store
