@@ -2,7 +2,7 @@
 FROM node:16.3.0
 
 RUN apt-get update
-RUN apt-get install -y git vi nginx \
+RUN apt-get install -y git nginx \
     && npm install -g pm2 \
     && npm install -g cnpm \
     && mkdir /git \
