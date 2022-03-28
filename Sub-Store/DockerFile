@@ -8,16 +8,16 @@ RUN apt-get install -y wget unzip git cron vim nginx \
 
 ENV TZ=Asia/Shanghai
 
-ENV Sourcepath="https://github.com/Peng-YM/Sub-Store.git"
+ENV Sourcepath="https://github.com/dompling/Sub-Store.git"
 ENV DMIAN="/"
 
 WORKDIR /Sub-Store
 RUN git clone ${Sourcepath} /Sub-Store \
-    && cd /Sub-Store/backend \
-    && npm install \
-    && cd /Sub-Store/web \
-    && npm install \
-    && npm run build
+     && cd /Sub-Store/backend \
+     && npm install \
+     && cd /Sub-Store/web \
+     && npm install \
+     && npm run build
 
 RUN cp -r /Sub-Store/nginx/front.conf /etc/nginx/conf.d
 
@@ -25,7 +25,7 @@ CMD cd /Sub-Store/backend && pm2 start sub-store.js \
     && nginx -c /etc/nginx/nginx.conf \
     && nginx -s reload\
     && cron -f
-
+    
 
 
 
