@@ -19,7 +19,7 @@ echo "判断是否存在前端静态资源。。。"
 if [ ! -d "$web/dist" ]; then
     cd "$web"
     echo "执行编译前端静态资源。。。"    
-    npm run build >> build.log 2>&1 &
+    node build
     cp -rf  "$web/dist" /var/www/sub-store
     echo "结束编译"
 fi
