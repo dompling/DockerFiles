@@ -13,15 +13,15 @@ RUN apk add --no-cache --virtual .build-deps \
     && mkdir /git \
     && mkdir /Sub-Store
 
-ENV SourcePath="https://github.com/dompling/Sub-Store.git"
-ENV DMIAN="/"
+ENV GIT="https://github.com/dompling/Sub-Store.git"
+ENV DOMAIN="/"
 
 WORKDIR /Sub-Store
 
 COPY sub-store.sh /usr/local/bin/sub-store
 RUN chmod +x /usr/local/bin/sub-store
 
-RUN git clone ${SourcePath} /git \
+RUN git clone ${GIT} /git \
     && cd /git/backend \
     && cnpm install \
     && cd /git/web \
