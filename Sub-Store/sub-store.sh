@@ -35,3 +35,5 @@ nginx -s reload
 echo "启动后端服务。。。"
 cd "$backend"
 pm2 start sub-store.js
+echo "打印后端日志"
+pm2 log sub-store
