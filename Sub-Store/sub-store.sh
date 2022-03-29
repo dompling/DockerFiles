@@ -8,12 +8,12 @@ nginx="$rootPath/nginx"
 
 echo -e "======================== 1、初始化配置 ========================\n"
 echo -e "开始初始化 UI 界面\n"
-cp -r /git/web /Sub-Store/web
+cp -r /git/web /Sub-Store/
 cd "$web"
 npm install
 
 echo -e "开始初始化接口\n"
-cp -r /git/web /Sub-Store/backend
+cp -r /git/web /Sub-Store/
 cd "$backend" 
 npm install 
 
