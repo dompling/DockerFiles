@@ -13,7 +13,7 @@ ENV TZ=Asia/Shanghai
 ENV Sourcepath="https://github.com/dompling/Sub-Store.git"
 ENV DMIAN="/"
 
-WORKDIR /git
+WORKDIR /Sub-Store
 RUN git clone ${Sourcepath} /git \
     && cd /git/backend \
     && cnpm install \
