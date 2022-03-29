@@ -6,8 +6,8 @@ backend="$rootPath/backend"
 web="$rootPath/web"
 nginx="$rootPath/nginx"
 
-if [ ! -d "$web" ]; then
-    echo "初始化配置。。。"
+echo "初始化配置。。。"
+if [ ! -f "$web/package.js" ]; then    
     cp -r /git/. /Sub-Store
 fi
 
@@ -20,7 +20,6 @@ if [ ! -d "$web/dist" ]; then
     cd "$web"
     echo "执行编译前端静态资源。。。"    
     npm run build >> build.log 2>&1 &
-    mkdir /var/www/sub-store
     cp -r dist /var/www/sub-store
     echo "结束编译"
 fi
