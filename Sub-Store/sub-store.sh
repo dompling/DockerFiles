@@ -8,7 +8,7 @@ nginx="$rootPath/nginx"
 
 if [ ! -f "$web/package.json" ]; then    
     echo "初始化配置。。。"
-    cp -r /git/. /Sub-Store
+    cp -r /git/. /Sub-Store/
     cd "$web" 
     npm install 
     cd "$backend" 
