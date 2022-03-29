@@ -10,12 +10,12 @@ echo -e "======================== 1、初始化配置 ========================\n
 echo -e "开始初始化 UI 界面\n"
 cp -r /git/web /Sub-Store/
 cd "$web"
-npm install
+cnpm install
 
 echo -e "开始初始化接口\n"
 cp -r /git/backend /Sub-Store/
 cd "$backend" 
-npm install 
+cnpm install 
 
 
 echo -e "======================== 2、验证 UI 界面 ========================\n"
