@@ -27,6 +27,7 @@ fi
 
 echo "启动前端web服务。。。"
 cp -rf  "$web/dist" /var/www/sub-store
+mkdir /etc/nginx/conf.d
 cp -r /Sub-Store/nginx/front.conf /etc/nginx/conf.d
 nginx -c /etc/nginx/nginx.conf 
 nginx -s reload
