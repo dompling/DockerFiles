@@ -23,11 +23,6 @@ ENV DOMAIN="/"
 
 WORKDIR /Sub-Store
 
-RUN git clone ${GIT} /git \
-    && cd /git/backend \
-    && cnpm install \
-    && cd /git/web \
-    && cnpm install
-
+RUN git clone ${GIT} /git
 
 ENTRYPOINT [ "/usr/local/bin/sub-store.sh" ]
