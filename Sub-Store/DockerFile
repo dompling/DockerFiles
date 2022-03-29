@@ -10,11 +10,10 @@ RUN apk add --no-cache --virtual .build-deps \
     nodejs \
     npm \
     nginx\
-    pm2 \
     && mkdir /git \
     && mkdir /docker \
     && mkdir /Sub-Store \
-    && npm install -g cnpm
+    && npm install -g cnpm pm2
 
 COPY /Sub-Store/sub-store.sh /usr/local/bin
 RUN chmod +x /usr/local/bin/sub-store.sh
