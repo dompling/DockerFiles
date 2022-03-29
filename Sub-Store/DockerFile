@@ -11,7 +11,6 @@ RUN apk add --no-cache --virtual .build-deps \
     npm \
     nginx\
     && mkdir /git \
-    && mkdir /docker \
     && mkdir /Sub-Store \
     && npm install -g cnpm pm2
 
