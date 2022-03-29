@@ -14,13 +14,14 @@ RUN apk add --no-cache --virtual .build-deps \
     && mkdir /Sub-Store \
     && npm install -g cnpm
 
+COPY /Sub-Store/sub-store.sh /usr/local/bin/sub-store
+RUN chmod +x /usr/local/bin/sub-store
+
 ENV GIT="https://github.com/dompling/Sub-Store.git"
 ENV DOMAIN="/"
 
 WORKDIR /Sub-Store
 
-COPY /Sub-Store/sub-store.sh /usr/local/bin/sub-store
-RUN chmod +x /usr/local/bin/sub-store
 
 RUN git clone ${GIT} /git \
     && cd /git/backend \
