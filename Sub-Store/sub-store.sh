@@ -15,8 +15,6 @@ if [ ! -f "$web/package.json" ]; then
     npm install 
 fi
 
-
- 
 echo "判断是否存在前端静态资源。。。"
 if [ ! -f "$web/dist/index.html" ]; then
     echo "删除自带后端地址，追加配置环境变量配置的后端地址。。。"
