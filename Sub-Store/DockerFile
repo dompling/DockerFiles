@@ -11,13 +11,12 @@ RUN apk add --no-cache --virtual .build-deps \
     npm \
     nginx\
     && mkdir /git \
+    && mkdir /docker \
     && mkdir /Sub-Store \
     && npm install -g cnpm pm2
 
 COPY /Sub-Store/sub-store.sh /usr/local/bin
-COPY /Sub-Store/nginx/nginx.conf /etc/nginx
-COPY /Sub-Store/nginx/front.conf /etc/nginx/conf.d/
-
+COPY /Sub-Store/nginx/nginx.conf /etc/nginx/nginx
 RUN chmod +x /usr/local/bin/sub-store.sh
 
 ENV GIT="https://github.com/dompling/Sub-Store.git"
