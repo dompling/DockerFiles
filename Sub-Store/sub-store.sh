@@ -20,7 +20,7 @@ sed -i "/BACKEND_BASE\|DEBUG\|DOMIAN/d" "$web/src/config.js"
 echo "export const BACKEND_BASE = '${DOMAIN}';" >>"$web/src/config.js"
  
 echo "判断是否存在前端静态资源。。。"
-if [ ! -d "$web/dist" ]; then
+if [ ! -f "$web/dist/index.html" ]; then
     cd "$web"
     echo "执行编译前端静态资源。。。"    
     npm run build
