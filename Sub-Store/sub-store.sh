@@ -7,8 +7,9 @@ web="$rootPath/web"
 nginx="$rootPath/nginx"
 
 cd /git/backend
-echo "初始化配置。。。"
-if [ ! -f "$web/package.js" ]; then    
+
+if [ ! -f "$web/package.json" ]; then    
+    echo "初始化配置。。。"
     cp -r /git/. /Sub-Store
     cd "$web" && cnpm install 
     cd "$backend" && cnpm install 
