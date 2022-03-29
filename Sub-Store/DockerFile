@@ -11,7 +11,8 @@ RUN apk add --no-cache --virtual .build-deps \
     npm \
     nginx\
     && mkdir /git \
-    && mkdir /Sub-Store
+    && mkdir /Sub-Store \
+    && npm install -g cnpm
 
 ENV GIT="https://github.com/dompling/Sub-Store.git"
 ENV DOMAIN="/"
@@ -23,8 +24,8 @@ RUN chmod +x /usr/local/bin/sub-store
 
 RUN git clone ${GIT} /git \
     && cd /git/backend \
-    && npm install \
+    && cnpm install \
     && cd /git/web \
-    && npm install
+    && cnpm install
 
 ENTRYPOINT [ "/usr/local/bin/sub-store.sh" ]
