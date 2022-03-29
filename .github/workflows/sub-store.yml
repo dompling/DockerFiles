@@ -6,6 +6,7 @@ on:
       - 'master'
     paths:
       - "Sub-Store/DockerFile"
+      - "Sub-Store/sub-store.sh"
 jobs:
   build:
     runs-on: ubuntu-latest
