@@ -6,35 +6,39 @@ backend="$rootPath/backend"
 web="$rootPath/web"
 nginx="$rootPath/nginx"
 
-if [ ! -f "$web/package.json" ]; then    
-    echo "初始化配置。。。"
-    cp -r /git/. /Sub-Store/
-    cd "$web" 
-    npm install 
-    cd "$backend" 
-    npm install 
-fi
+echo -e "======================== 1、初始化配置 ========================\n"
+echo -e "开始初始化 UI 界面\n"
+cp -r /git/web /Sub-Store/web
+cd "$web"
+npm install
 
-echo "判断是否存在前端静态资源。。。"
+echo -e "开始初始化接口\n"
+cp -r /git/web /Sub-Store/backend
+cd "$backend" 
+npm install 
+
+
+echo -e "======================== 2、验证 UI 界面 ========================\n"
 if [ ! -f "$web/dist/index.html" ]; then
-    echo "删除自带后端地址，追加配置环境变量配置的后端地址。。。"
+    echo -e "删除自带后端地址，追加配置环境变量配置的后端地址\n"
     sed -i "/BACKEND_BASE\|DEBUG\|DOMIAN/d" "$web/src/config.js"
     echo "export const BACKEND_BASE = '${DOMAIN}';" >>"$web/src/config.js"
     cd "$web"
-    echo "执行编译前端静态资源。。。"    
+    echo -e "执行编译前端静态资源\n"    
     npm run build
-    echo "结束编译"
+    echo -e "结束编译\n"
+else
+    echo -e "验证结束\n"     
 fi
 
-echo "启动前端web服务。。。"
+echo -e "======================== 3、启动 UI 界面 ========================\n"
 cp -rf  "$web/dist" /var/www/sub-store
 mkdir -p /etc/nginx/conf.d
 cp -r /Sub-Store/nginx/front.conf /etc/nginx/conf.d
 nginx -c /etc/nginx/nginx.conf 
 nginx -s reload
 
-echo "启动后端服务。。。"
+echo -e "======================== 4、启动后端接口 ========================\n"
 cd "$backend"
 pm2 start sub-store.js
-echo "打印后端日志"
 pm2 log sub-store
