@@ -1,7 +1,7 @@
 
 FROM alpine
 
-RUN apt-get update
+RUN apt update
 RUN apk add --no-cache --virtual .build-deps \
     ca-certificates \
     curl \
