@@ -18,7 +18,7 @@ ENV DOMAIN="/"
 
 WORKDIR /Sub-Store
 
-COPY sub-store.sh /usr/local/bin/sub-store
+COPY /Sub-Store/sub-store.sh /usr/local/bin/sub-store
 RUN chmod +x /usr/local/bin/sub-store
 
 RUN git clone ${GIT} /git \
