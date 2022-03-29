@@ -6,8 +6,6 @@ backend="$rootPath/backend"
 web="$rootPath/web"
 nginx="$rootPath/nginx"
 
-cd /git/backend
-
 if [ ! -f "$web/package.json" ]; then    
     echo "初始化配置。。。"
     cp -r /git/. /Sub-Store
