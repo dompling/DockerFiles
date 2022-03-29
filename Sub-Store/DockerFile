@@ -23,8 +23,8 @@ RUN chmod +x /usr/local/bin/sub-store
 
 RUN git clone ${GIT} /git \
     && cd /git/backend \
-    && cnpm install \
+    && npm install \
     && cd /git/web \
-    && cnpm install
+    && npm install
 
 ENTRYPOINT [ "/usr/local/bin/sub-store.sh" ]
