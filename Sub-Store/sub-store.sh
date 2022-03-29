@@ -24,11 +24,11 @@ if [ ! -f "$web/dist/index.html" ]; then
     cd "$web"
     echo "执行编译前端静态资源。。。"    
     npm run build
-    cp -rf  "$web/dist" /var/www/sub-store
     echo "结束编译"
 fi
 
 echo "启动前端web服务。。。"
+cp -rf  "$web/dist" /var/www/sub-store
 mkdir /etc/nginx/conf.d
 cp -r /Sub-Store/nginx/front.conf /etc/nginx/conf.d
 nginx -c /etc/nginx/nginx.conf 
