@@ -16,6 +16,8 @@ RUN apk add --no-cache --virtual .build-deps \
 
 COPY /Sub-Store/sub-store.sh /usr/local/bin
 COPY /Sub-Store/nginx/nginx.conf /etc/nginx
+COPY /Sub-Store/nginx/front.conf /etc/nginx/conf.d/
+
 RUN chmod +x /usr/local/bin/sub-store.sh
 
 ENV GIT="https://github.com/dompling/Sub-Store.git"
