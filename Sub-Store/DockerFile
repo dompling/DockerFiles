@@ -27,4 +27,4 @@ RUN git clone ${GIT} /git \
     && cd /git/web \
     && cnpm install
 
-ENTRYPOINT [ "sub-store" ]
+ENTRYPOINT [ "/usr/local/bin/sub-store.sh" ]
