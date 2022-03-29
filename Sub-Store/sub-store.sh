@@ -9,8 +9,10 @@ nginx="$rootPath/nginx"
 if [ ! -f "$web/package.json" ]; then    
     echo "初始化配置。。。"
     cp -r /git/. /Sub-Store
-    cd "$web" && cnpm install 
-    cd "$backend" && cnpm install 
+    cd "$web" 
+    npm install 
+    cd "$backend" 
+    npm install 
 fi
 
 echo "删除自带后端地址，追加配置环境变量配置的后端地址。。。"
