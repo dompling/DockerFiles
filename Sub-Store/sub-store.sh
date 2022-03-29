@@ -15,12 +15,13 @@ if [ ! -f "$web/package.json" ]; then
     npm install 
 fi
 
-echo "删除自带后端地址，追加配置环境变量配置的后端地址。。。"
-sed -i "/BACKEND_BASE\|DEBUG\|DOMIAN/d" "$web/src/config.js"
-echo "export const BACKEND_BASE = '${DOMAIN}';" >>"$web/src/config.js"
+
  
 echo "判断是否存在前端静态资源。。。"
 if [ ! -f "$web/dist/index.html" ]; then
+    echo "删除自带后端地址，追加配置环境变量配置的后端地址。。。"
+    sed -i "/BACKEND_BASE\|DEBUG\|DOMIAN/d" "$web/src/config.js"
+    echo "export const BACKEND_BASE = '${DOMAIN}';" >>"$web/src/config.js"
     cd "$web"
     echo "执行编译前端静态资源。。。"    
     npm run build
