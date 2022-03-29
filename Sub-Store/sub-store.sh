@@ -14,6 +14,7 @@ cnpm install
 
 echo -e "开始初始化接口\n"
 cp -r /git/backend /Sub-Store/
+cp -r /git/nginx /Sub-Store/
 cd "$backend" 
 cnpm install 
 
