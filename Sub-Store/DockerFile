@@ -16,7 +16,7 @@ RUN apk add --no-cache --virtual .build-deps \
     && npm install -g cnpm
 
 COPY /Sub-Store/sub-store.sh /usr/local/bin
-RUN chmod +x /usr/local/bin/sub-store
+RUN chmod +x /usr/local/bin/sub-store.sh
 
 ENV GIT="https://github.com/dompling/Sub-Store.git"
 ENV DOMAIN="/"
