@@ -11,7 +11,7 @@ echo -e "======================== 1、启动 UI 界面 ========================\
 mkdir -p /etc/nginx/conf.d
 cp -r /Sub-Store/nginx/. /etc/nginx/conf.d
 echo -e "生成 nginx 配置文件\n"
-envsubst '${ALLOW_IP}' < /etc/nginx/conf.d/front.template > /etc/nginx/conf.d/front.conf && cat /etc/nginx/conf.d/front.conf && nginx -g 'daemon off;'
+envsubst '${ALLOW_IP}' < /etc/nginx/conf.d/front.template > /etc/nginx/conf.d/front.conf && nginx -g 'daemon off;'
 
 nginx -c /etc/nginx/nginx.conf 
 nginx -s reload
