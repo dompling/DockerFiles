@@ -12,7 +12,7 @@ server {
     set $flag "${flag}1";
  }
 
- if ( $remote_addr ~ $allow_ip ){
+ if ( $remote_addr ~ ${ALLOW_IP} ){
    set $flag "${flag}2";
  }
 
@@ -21,7 +21,7 @@ server {
   }
 
   if ( $flag != "012" ){
-     return 404;
+     return 401;
   }
 
   gzip on;
