@@ -7,7 +7,7 @@ on:
     paths:
       # - "Sub-Store/DockerFile"
       # - "Sub-Store/sub-store.sh"
-      - "Sub-Store/.*"
+      - "Sub-Store/."
 jobs:
   build:
     runs-on: ubuntu-latest
