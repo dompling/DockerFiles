@@ -16,7 +16,6 @@ envsubst '${ALLOW_IP}' < /etc/nginx/conf.d/front.template > /etc/nginx/conf.d/fr
 nginx -c /etc/nginx/nginx.conf 
 nginx -s reload
 
-
 echo -e "======================== 2、启动后端接口 ========================\n"
 cd "$backend"
 pm2 start sub-store.js
@@ -33,5 +32,6 @@ if [ ! -f "$web/dist/index.html" ]; then
 else
     echo -e "验证结束\n"     
 fi
+
 cp -rf  "$web/dist" /var/www/sub-store
 pm2 log sub-store
