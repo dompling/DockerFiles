@@ -7,7 +7,24 @@ web="$rootPath/web"
 nginx="$rootPath/nginx"
 
 
-echo -e "======================== 1、验证 UI 界面 ========================\n"
+echo -e "======================== 1、启动 UI 界面 ========================\n"
+cp -rf  "$web/dist" /var/www/sub-store
+mkdir -p /etc/nginx/conf.d
+
+cp -r /Sub-Store/nginx/. /etc/nginx/conf.d
+echo -e "生成 nginx 配置文件\n"
+envsubst '${ALLOW_IP}' < /etc/nginx/conf.d/front.template > /etc/nginx/conf.d/front.conf && cat /etc/nginx/conf.d/front.conf && nginx -g 'daemon off;'
+
+nginx -c /etc/nginx/nginx.conf 
+nginx -s reload
+
+
+echo -e "======================== 2、启动后端接口 ========================\n"
+cd "$backend"
+pm2 start sub-store.js
+pm2 log sub-store
+
+echo -e "======================== 3、验证 UI 界面 ========================\n"
 if [ ! -f "$web/dist/index.html" ]; then
     echo -e "删除自带后端地址，追加配置环境变量配置的后端地址\n"
     sed -i "/BACKEND_BASE\|DEBUG\|DOMIAN/d" "$web/src/config.js"
@@ -19,19 +36,3 @@ if [ ! -f "$web/dist/index.html" ]; then
 else
     echo -e "验证结束\n"     
 fi
-
-echo -e "======================== 2、启动 UI 界面 ========================\n"
-cp -rf  "$web/dist" /var/www/sub-store
-mkdir -p /etc/nginx/conf.d
-
-cp -r /Sub-Store/nginx/. /etc/nginx/conf.d
-echo -e "生成 nginx 配置文件\n"
-envsubst '${ALLOW_IP}' < /etc/nginx/conf.d/front.template > /etc/nginx/conf.d/front.conf && cat /etc/nginx/conf.d/front.conf && nginx -g 'daemon off;'
-
-nginx -c /etc/nginx/nginx.conf 
-nginx -s reload
-
-echo -e "======================== 3、启动后端接口 ========================\n"
-cd "$backend"
-pm2 start sub-store.js
-pm2 log sub-store
