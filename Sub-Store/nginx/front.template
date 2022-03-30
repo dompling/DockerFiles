@@ -8,11 +8,11 @@ server {
  set $flag 0;
  set $allow_ip "${ALLOW_IP}";
 
- if ( $allow_ip !~ "" ){
+ if ( $allow_ip !~ "^$" ){
     set $flag "${flag}1";
  }
 
- if ( $remote_addr ~ "(${allow_ip})" ){
+ if ( $remote_addr ~ $allow_ip ){
    set $flag "${flag}2";
  }
 
@@ -34,7 +34,7 @@ server {
   gzip_http_version 1.0;
 
   location / {
-    root /var/www/sub-store/dist;
+    root /Sub-Store/web/dist;
     index  index.html index.htm;
     try_files $uri $uri/ /index.html;
   }
