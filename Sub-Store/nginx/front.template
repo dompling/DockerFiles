@@ -6,7 +6,7 @@ server {
  listen 6080;
 
  set $flag 0;
- set allow_ip "${ALLOW_IP}";
+ set $allow_ip "${ALLOW_IP}";
  if ( $allow_ip !~ "" ){
     set $flag "${flag}1"
  }
