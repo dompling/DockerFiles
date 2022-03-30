@@ -16,7 +16,7 @@ server {
    set $flag "${flag}2";
  }
 
- if ( $flag = "012" ){
+ if ( $flag != "012" ){
    return 404;
  }
 
