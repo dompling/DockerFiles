@@ -31,4 +31,4 @@ WORKDIR /Sub-Store
 
 RUN git clone ${GIT} /git
 
-ENTRYPOINT [ "/Sub-Store/sub-store.sh" ]
+ENTRYPOINT ["/Sub-Store/sub-store.sh" ]
