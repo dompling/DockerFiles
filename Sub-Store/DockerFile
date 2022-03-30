@@ -21,7 +21,7 @@ COPY /Sub-Store/nginx/nginx.conf /etc/nginx/
 COPY /Sub-Store/nginx/front.conf /Sub-Store/nginx/conf.d/
 COPY /Sub-Store/nginx/front.template /Sub-Store/nginx/conf.d/
 
-RUN chmod +x /usr/local/bin/sub-store.sh
+RUN chmod +x /Sub-Store/sub-store.sh
 
 ENV GIT="https://github.com/Peng-YM/Sub-Store.git"
 ENV DOMAIN="/"
