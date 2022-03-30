@@ -3,9 +3,8 @@ upstream api {
 }
 
 server {
-  listen 6080;
-
-
+ listen 6080;
+ 
  set $flag 0;
  if ( '${ALLOW_IP}' != '' ){
     set $flag "${flag}1"
