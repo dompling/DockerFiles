@@ -5,7 +5,9 @@ on:
     branches:
       - 'master'
     paths:
-      - "Sub-Store"
+      - "Sub-Store/DockerFile"
+      - "Sub-Store/sub-store.sh"
+      - "Sub-Store/nginx"
 jobs:
   build:
     runs-on: ubuntu-latest
