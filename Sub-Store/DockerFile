@@ -13,17 +13,22 @@ RUN apk add --no-cache --virtual .build-deps \
     && mkdir /git \
     && mkdir /docker \
     && mkdir /Sub-Store \
+    && mkdir /Sub-Store/nginx \
     && npm install -g cnpm pm2
 
-COPY /Sub-Store/sub-store.sh /usr/local/bin
+COPY /Sub-Store/sub-store.sh /Sub-Store/
 COPY /Sub-Store/nginx/nginx.conf /etc/nginx/
+COPY /Sub-Store/nginx/front.conf /Sub-Store/nginx/conf.d/
+COPY /Sub-Store/nginx/front.template /Sub-Store/nginx/conf.d/
+
 RUN chmod +x /usr/local/bin/sub-store.sh
 
 ENV GIT="https://github.com/Peng-YM/Sub-Store.git"
 ENV DOMAIN="/"
+ENV ALLOW_IP=""
 
 WORKDIR /Sub-Store
 
 RUN git clone ${GIT} /git
 
-ENTRYPOINT [ "/usr/local/bin/sub-store.sh" ]
+ENTRYPOINT [ "/Sub-Store/sub-store.sh" ]

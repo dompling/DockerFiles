@@ -14,9 +14,12 @@ cnpm install
 
 echo -e "开始初始化接口\n"
 cp -r /git/backend /Sub-Store/
-if [ ! -f "$nginx/fron.conf" ]; then
+if [ ! -f "$nginx/front.conf" ]; then
     cp -r /git/nginx /Sub-Store/
 fi
+
+envsubst '${ALLOW_IP}' < /etc/nginx/conf.d/front.template > /etc/nginx/conf.d/front.conf && cat /etc/nginx/conf.d/front.conf && nginx -g 'daemon off;'
+
 cd "$backend" 
 cnpm install 
 
@@ -37,6 +40,7 @@ fi
 echo -e "======================== 3、启动 UI 界面 ========================\n"
 cp -rf  "$web/dist" /var/www/sub-store
 mkdir -p /etc/nginx/conf.d
+
 cp -r /Sub-Store/nginx/front.conf /etc/nginx/conf.d
 nginx -c /etc/nginx/nginx.conf 
 nginx -s reload
