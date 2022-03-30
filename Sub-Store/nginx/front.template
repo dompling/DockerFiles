@@ -21,7 +21,7 @@ server {
  }
 
  if ( $flag = "0" ){
-    return 400 "请重新创建容器并设置，ALLOW_IP 环境变量!!"
+    return 400 "请重新创建容器并设置，ALLOW_IP 环境变量!!";
   }
 
   gzip on;
