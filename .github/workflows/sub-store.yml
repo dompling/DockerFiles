@@ -5,8 +5,9 @@ on:
     branches:
       - 'master'
     paths:
-      - "Sub-Store/DockerFile"
-      - "Sub-Store/sub-store.sh"
+      # - "Sub-Store/DockerFile"
+      # - "Sub-Store/sub-store.sh"
+      - "Sub-Store/.*"
 jobs:
   build:
     runs-on: ubuntu-latest

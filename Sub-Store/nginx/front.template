@@ -6,11 +6,12 @@ server {
  listen 6080;
 
  set $flag 0;
- if ( '${ALLOW_IP}' != '' ){
+ set allow_ip "${ALLOW_IP}";
+ if ( $allow_ip !~ "" ){
     set $flag "${flag}1"
  }
 
- if ( '${ALLOW_IP}' !~ $remote_addr ){
+ if ( $remote_addr ~ "(${allow_ip})" ){
    set $flag "${flag}2"
  }
 
