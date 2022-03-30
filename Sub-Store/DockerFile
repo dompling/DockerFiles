@@ -10,7 +10,7 @@ RUN apk add --no-cache --virtual .build-deps \
     nodejs \
     npm \
     nginx\
-    envsubst\
+    gettext\
     && mkdir /git \
     && mkdir /docker \
     && mkdir /Sub-Store \
