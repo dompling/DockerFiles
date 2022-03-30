@@ -34,4 +34,5 @@ else
 fi
 
 cp -rf  "$web/dist" /var/www/sub-store
+
 pm2 log sub-store
