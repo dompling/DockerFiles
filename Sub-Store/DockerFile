@@ -18,8 +18,8 @@ RUN apk add --no-cache --virtual .build-deps \
 
 COPY /Sub-Store/sub-store.sh /Sub-Store/
 COPY /Sub-Store/nginx/nginx.conf /etc/nginx/
-COPY /Sub-Store/nginx/front.conf /Sub-Store/nginx/conf.d/
-COPY /Sub-Store/nginx/front.template /Sub-Store/nginx/conf.d/
+COPY /Sub-Store/nginx/front.conf /Sub-Store/nginx/
+COPY /Sub-Store/nginx/front.template /Sub-Store/nginx/
 
 RUN chmod +x /Sub-Store/sub-store.sh
 
@@ -29,6 +29,13 @@ ENV ALLOW_IP=""
 
 WORKDIR /Sub-Store
 
-RUN git clone ${GIT} /git
+RUN git clone ${GIT} /git\
+    && cd /git/backend \
+    && cp -r /git/web /Sub-Store/ \
+    && cp -r /git/backend /Sub-Store/ \
+    && cd /Sub-Store/backend \
+    && cnpm install \
+    && cd /Sub-Store/web \
+    && cnpm install
 
 ENTRYPOINT ["/Sub-Store/sub-store.sh" ]
