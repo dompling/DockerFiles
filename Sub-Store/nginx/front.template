@@ -4,14 +4,14 @@ upstream api {
 
 server {
  listen 6080;
- 
+
  set $flag 0;
  if ( '${ALLOW_IP}' != '' ){
     set $flag "${flag}1"
  }
 
  if ( '${ALLOW_IP}' !~ $remote_addr ){
-   set $flag "${flag}12"
+   set $flag "${flag}2"
  }
 
  if($flag = "012"){
