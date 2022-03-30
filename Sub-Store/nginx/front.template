@@ -17,9 +17,8 @@ server {
  }
 
  if ( $flag = "0" ){
-    return 200 "{code:200,msg:'env ALLOW_IP is not found'}";
+    return 403;
   }
-
 
   if ( $flag != "012" ){
      return 404;
