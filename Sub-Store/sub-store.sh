@@ -18,6 +18,7 @@ if [ ! -f "$nginx/front.conf" ]; then
     cp -r /git/nginx /Sub-Store/
 fi
 
+echo -e "生成 nginx 配置文件\n"
 envsubst '${ALLOW_IP}' < /etc/nginx/conf.d/front.template > /etc/nginx/conf.d/front.conf && cat /etc/nginx/conf.d/front.conf && nginx -g 'daemon off;'
 
 cd "$backend" 
