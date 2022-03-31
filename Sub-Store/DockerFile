@@ -32,7 +32,7 @@ ENV ALLOW_IP=""
 WORKDIR /Sub-Store
 
 RUN git clone ${GIT} /git\
-    git clone ${DOCKER} /docker\
+    && git clone ${DOCKER} /docker\
     && cd /git/backend \
     && cp -r /git/web /Sub-Store/ \
     && cp -r /git/backend /Sub-Store/ \
