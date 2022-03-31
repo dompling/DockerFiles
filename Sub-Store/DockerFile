@@ -23,6 +23,7 @@ ENV GIT="https://github.com/Peng-YM/Sub-Store.git"
 ENV DOCKER="https://github.com/dompling/DockerFiles.git"
 ENV DOMAIN="/"
 ENV ALLOW_IP=""
+ENV TZ=Asia/Shanghai
 
 WORKDIR /Sub-Store
 
