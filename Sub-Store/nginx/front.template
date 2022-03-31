@@ -24,6 +24,10 @@ server {
     set $flag "012";
   }
 
+  if ( $remote_addr = 0.0.0.0 ){
+    set $flag "012";
+  }
+
   if ( $flag != "012" ){
      return 401;
   }
