@@ -20,7 +20,9 @@ echo -e "======================== 2、启动后端接口 =======================
 cp -r /git/web "$rootPath"
 cp -r /git/backend "$rootPath"
 
-pm2 start "$backend/sub-store.js" --source-map-support --time
+cd $backend
+pm2 start sub-store.js --source-map-support --time
+
 echo -e "==============================================================\n"
 
 echo -e "======================== 3、启动 Sub-Store 界面 ========================\n"
