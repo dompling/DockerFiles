@@ -9,7 +9,7 @@ nginx="$rootPath/nginx"
 echo -e "======================== 1. 启动nginx ========================\n"
 mkdir -p /etc/nginx/conf.d
 mkdir -p /run/nginx
-cp -r /Sub-Store/nginx/. /etc/nginx/conf.d
+cp -r /docker/nginx/. /etc/nginx/conf.d
 echo -e "生成 nginx 配置文件\n"
 envsubst '${ALLOW_IP}' < /etc/nginx/conf.d/front.template > /etc/nginx/conf.d/front.conf
 nginx -s reload 2>/dev/null || nginx -c /etc/nginx/nginx.conf
