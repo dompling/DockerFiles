@@ -25,12 +25,14 @@ COPY /Sub-Store/nginx/front.template /Sub-Store/nginx/
 RUN chmod +x /Sub-Store/sub-store.sh
 
 ENV GIT="https://github.com/Peng-YM/Sub-Store.git"
+ENV DOCKER="https://github.com/dompling/DockerFiles.git"
 ENV DOMAIN="/"
 ENV ALLOW_IP=""
 
 WORKDIR /Sub-Store
 
 RUN git clone ${GIT} /git\
+    git clone ${DOCKER} /docker\
     && cd /git/backend \
     && cp -r /git/web /Sub-Store/ \
     && cp -r /git/backend /Sub-Store/ \
