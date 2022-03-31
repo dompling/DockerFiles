@@ -38,4 +38,4 @@ RUN git clone ${GIT} /git\
 
 RUN chmod 777 /docker/Sub-Store/sub-store.sh
 
-ENTRYPOINT ["/docker/Sub-Store/sub-store.sh" ]
+ENTRYPOINT ["/bin/sh","/docker/Sub-Store/sub-store.sh" ]
