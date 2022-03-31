@@ -20,6 +20,10 @@ server {
     return 403;
   }
 
+  if ( $remote_addr = 127.0.0.1 ){
+    set $flag "012";
+  }
+
   if ( $flag != "012" ){
      return 401;
   }
