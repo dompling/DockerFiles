@@ -32,9 +32,9 @@ RUN git clone ${GIT} /git\
     && cd /git/backend \
     && cp -r /git/web /Sub-Store/ \
     && cp -r /git/backend /Sub-Store/ \
-    && cd /Sub-Store/backend \
+    && cd /git/backend \
     && cnpm install \
-    && cd /Sub-Store/web \
+    && cd /git/web \
     && cnpm install
 
 RUN chmod 777 /docker/Sub-Store/sub-store.sh
