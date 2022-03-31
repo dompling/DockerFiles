@@ -17,7 +17,9 @@ nginx -s reload 2>/dev/null || nginx -c /etc/nginx/nginx.conf
 echo -e "==============================================================\n"
 
 echo -e "======================== 2、启动后端接口 ========================\n"
-cd 
+cp -r /git/web "$rootPath"
+cp -r /git/backend "$rootPath"
+
 pm2 start "$backend/sub-store.js" --source-map-support --time
 echo -e "==============================================================\n"
 
