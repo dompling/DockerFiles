@@ -36,6 +36,6 @@ RUN git clone ${GIT} /git\
     && cd /Sub-Store/web \
     && cnpm install
 
-RUN chmod +x /docker/Sub-Store/sub-store.sh
+RUN chmod 777 /docker/Sub-Store/sub-store.sh
 
 ENTRYPOINT ["/docker/Sub-Store/sub-store.sh" ]
