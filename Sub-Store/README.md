@@ -40,21 +40,21 @@ services:
 > 环境变量
 
 <li>
-DOMAIN：
+DOMAIN：<br>
 （<code style="color:red">（IP+端口）</code> 或者
 <code style="color:red">（域名+端口）</code>）端口此处配置  （6080）
 </li>
 <li>
-ALLOW_IP：
+ALLOW_IP：<br>
   允许访问的 <code style="color:red">IP地址</code> 为正则的方式如<code style="color:red">ALLOW_IP=(^127\.0\.0\.1)</code>
 </li>
 <br>
 
 #### 常见问题
 
-1.部署成功之后访问方式为 DOMIAN 的写法
-2.确保服务器的端口是联通的
-3.限制，具体方法请自行网上搜索配置好后使用 v2ray 容器挂载到当前服务器，然后设置代理访问。
+1.部署成功之后访问方式为 DOMIAN 的写法<br>
+2.确保服务器的端口是联通的<br>
+3.限制，具体方法请自行网上搜索配置好后使用 v2ray 容器挂载到当前服务器，然后设置代理访问
 #### 结束语
 
 > 感谢 [@Peng-YM](https://github.com/Peng-YM/Sub-Store) 大佬的无私奉献将代码开源
