@@ -40,12 +40,12 @@ services:
 > 环境变量
 
 <li>
-DOMAIN：<br>
+DOMAIN：
 （<code style="color:red">（IP+端口）</code> 或者
 <code style="color:red">（域名+端口）</code>）端口此处配置  （6080）
 </li>
 <li>
-ALLOW_IP：<br>
+ALLOW_IP：
   允许访问的 <code style="color:red">IP地址</code> 为正则的方式如<code style="color:red">ALLOW_IP=(^127\.0\.0\.1)</code>
 </li>
 <br>
