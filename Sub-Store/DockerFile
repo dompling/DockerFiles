@@ -1,5 +1,5 @@
 
-FROM alpine
+FROM node:alpine
 
 RUN apk update
 RUN apk add --no-cache --virtual .build-deps \
@@ -38,5 +38,6 @@ RUN git clone ${GIT} /git\
     && cnpm install
 
 RUN chmod 777 /docker/Sub-Store/sub-store.sh
+
 
 ENTRYPOINT ["/bin/sh","/docker/Sub-Store/sub-store.sh" ]
