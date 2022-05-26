@@ -22,22 +22,26 @@ RUN apk add --no-cache --virtual .build-deps \
 ENV GIT="https://github.com/dompling/Sub-Store.git"
 ENV DOCKER="https://github.com/dompling/DockerFiles.git"
 ENV DOMAIN="/"
-ENV ALLOW_IP=""
+ENV Authorization=""
 ENV TZ=Asia/Shanghai
 
 WORKDIR /Sub-Store
 
 RUN git clone ${GIT} /git\
-    && git clone ${DOCKER} /docker\
     && cd /git/backend \
     && cp -r /git/web /Sub-Store/ \
     && cp -r /git/backend /Sub-Store/ \
     && cd /git/backend \
     && cnpm install \
     && cd /git/web \
-    && cnpm install
+    && cnpm install \ 
+    && cp -r /git/docker /docker \
+    && mkdir -p /etc/nginx/conf.d \
+    && mkdir -p /run/nginx \
+    && cp -r /docker/nginx/front* /etc/nginx/conf.d \
+    && cp -r /docker/nginx/nginx.conf /etc/nginx/
 
-RUN chmod 777 /docker/Sub-Store/sub-store.sh
 
+RUN chmod 777 /docker/sub-store.sh
 
-ENTRYPOINT ["/bin/sh","/docker/Sub-Store/sub-store.sh" ]
+ENTRYPOINT ["/bin/sh","/docker/sub-store.sh" ]
