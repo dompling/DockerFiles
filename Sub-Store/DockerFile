@@ -35,8 +35,10 @@ RUN git clone ${GIT} /git\
     && cnpm install \
     && cd /git/web \
     && cnpm install \ 
-    && cp -r /git/docker/ /docker \
-    && ls /docker
+    && cp -r /git/docker/* /docker/ \
+    && mkdir -p /etc/nginx/conf.d \
+    && cp -r /git/nginx/front* /etc/nginx/conf.d/ \
+    && cp -r /git/nginx/nginx.conf /etc/nginx/
 
 RUN chmod 777 /docker/sub-store.sh
 
