@@ -12,7 +12,6 @@ RUN apk add --no-cache --virtual .build-deps \
     nginx\
     gettext\
     && mkdir /git \
-    && mkdir /docker \
     && mkdir /Sub-Store \
     && mkdir /Sub-Store/nginx \
     && npm install -g cnpm pm2
@@ -20,7 +19,6 @@ RUN apk add --no-cache --virtual .build-deps \
 
 
 ENV GIT="https://github.com/dompling/Sub-Store.git"
-ENV DOCKER="https://github.com/dompling/DockerFiles.git"
 ENV DOMAIN="/"
 ENV Authorization=""
 ENV TZ=Asia/Shanghai
@@ -35,11 +33,10 @@ RUN git clone ${GIT} /git\
     && cnpm install \
     && cd /git/web \
     && cnpm install \ 
-    && cp -r /git/docker/* /docker/ \
     && mkdir -p /etc/nginx/conf.d \
     && cp -r /git/nginx/front* /etc/nginx/conf.d/ \
     && cp -r /git/nginx/nginx.conf /etc/nginx/
 
-RUN chmod 777 /docker/sub-store.sh
+RUN chmod 777 /git/docker/sub-store.sh
 
-ENTRYPOINT ["/bin/sh","/docker/sub-store.sh" ]
+ENTRYPOINT ["/bin/sh","/git/docker/sub-store.sh" ]
