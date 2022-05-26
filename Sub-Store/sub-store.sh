@@ -21,7 +21,7 @@ cp -r /git/web "$rootPath"
 cp -r /git/backend "$rootPath"
 
 cd $backend
-pm2 start sub-store.js --source-map-support --time
+pm2 start sub-store.min.js --source-map-support --time
 
 echo -e "==============================================================\n"
 
