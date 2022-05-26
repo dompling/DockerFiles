@@ -35,7 +35,8 @@ RUN git clone ${GIT} /git\
     && cnpm install \
     && cd /git/web \
     && cnpm install \ 
-    && cp -r /git/docker /docker 
+    && cp -r /git/docker /docker \
+    && ls /docker
     # && mkdir -p /etc/nginx/conf.d \
     # && mkdir -p /run/nginx \
     # && cp -r /docker/nginx/front* /etc/nginx/conf.d \
