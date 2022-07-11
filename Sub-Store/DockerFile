@@ -35,8 +35,6 @@ RUN git clone ${FRONT_END} /git/Front\
 
 RUN cp -r /git/Front /Sub-Store/ \
     && cp -r /git/Sub-Store/backend /Sub-Store/ \
-    && cd /Sub-Store/backend \
-    && cnpm install \
     && cd /Sub-Store/Front \
     && pnpm install \ 
     && mkdir -p /etc/nginx/conf.d \
