@@ -41,5 +41,6 @@ RUN cp -r /git/Front /Sub-Store/ \
     && cp -r /git/Docker/nginx/front* /etc/nginx/conf.d/ \
     && cp -r /git/Docker/nginx/nginx.conf /etc/nginx/
 
+
 RUN chmod 777 /git/Docker/docker/sub-store.sh
 ENTRYPOINT ["/bin/sh","/git/Docker/docker/sub-store.sh" ]
