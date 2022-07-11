@@ -30,8 +30,8 @@ ENV TZ=Asia/Shanghai
 WORKDIR /Sub-Store
 
 RUN git clone ${FRONT_END} /git/Front\
-    git clone ${BACK_END} /git/Sub-Store\
-    git clone ${DOKCER} /git/Docker
+    && git clone ${BACK_END} /git/Sub-Store\
+    && git clone ${DOKCER} /git/Docker
 
 RUN cp -r /git/Front /Sub-Store/ \
     && cp -r /git/Sub-Store/backend /Sub-Store/ \
