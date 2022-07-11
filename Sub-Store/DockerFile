@@ -12,9 +12,9 @@ RUN apk add --no-cache --virtual .build-deps \
     nginx\
     gettext\
     && mkdir /git \
-    && mkdir /git/FRONT_END\
-    && mkdir /git/BACK_END\
-    && mkdir /git/DOKCER\
+    && mkdir /git/Front\
+    && mkdir /git/Sub-Store\
+    && mkdir /git/Docker\
     && mkdir /Sub-Store \
     && mkdir /Sub-Store/nginx \
     && npm install -g cnpm pm2 pnpm
@@ -29,19 +29,20 @@ ENV TZ=Asia/Shanghai
 
 WORKDIR /Sub-Store
 
-RUN git clone ${FRONT_END} /git/FRONT_END\
-    git clone ${BACK_END} /git/BACK_END\
-    git clone ${DOKCER} /git/DOKCER\
-    && cp -r /git/FRONT_END /Sub-Store/ \
-    && cp -r /git/BACK_END/backend /Sub-Store/ \
-    && cd /Sub-Store/BACK_END/backend \
+RUN git clone ${FRONT_END} /git/Front\
+    git clone ${BACK_END} /git/Sub-Store\
+    git clone ${DOKCER} /git/Docker
+
+RUN cp -r /git/Front /Sub-Store/ \
+    && cp -r /git/Sub-Store/backend /Sub-Store/ \
+    && cd /Sub-Store/Sub-Store/backend \
     && cnpm install \
-    && cd /Sub-Store/FRONT_END \
+    && cd /Sub-Store/Front \
     && cnpm install \ 
     && mkdir -p /etc/nginx/conf.d \
-    && cp -r /git/DOKCER/nginx/front* /etc/nginx/conf.d/ \
-    && cp -r /git/DOKCER/nginx/nginx.conf /etc/nginx/
+    && cp -r /git/Docker/nginx/front* /etc/nginx/conf.d/ \
+    && cp -r /git/Docker/nginx/nginx.conf /etc/nginx/
 
-RUN chmod 777 /git/DOKCER/docker/sub-store.sh
+RUN chmod 777 /git/Docker/docker/sub-store.sh
 
-ENTRYPOINT ["/bin/sh","/git/DOKCER/docker/sub-store.sh" ]
+ENTRYPOINT ["/bin/sh","/git/Docker/docker/sub-store.sh" ]
