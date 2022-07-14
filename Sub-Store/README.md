@@ -22,7 +22,7 @@ services:
       - $PWD/backend:/Sub-Store/backend #映射的后端目录，含有缓存的接口数据
     environment:
       - DOMAIN=http://sub-store.com
-      - ALLOW_IP=(^xx\.xx\.xx\.xx)  # 限制 IP访问，正则规则的 ip 支持多个匹配，因为是公网访问，所以可以搭配 v2ray 之类的代理作为限制，也可以使用自己已经有的订阅地址的 ip，然后本地 vpn 软件建立相关访问的分流规则
+      - ALLOW_IP=127.0.0.1  # 限制 IP访问，因为是公网访问，所以可以搭配 v2ray 之类的代理作为限制，也可以使用自己已经有的订阅地址的 ip，然后本地 vpn 软件建立相关访问的分流规则
       - TZ=Asia/Shanghai
 ```
 
@@ -46,7 +46,7 @@ DOMAIN：
 </li>
 <li>
 ALLOW_IP：
-  允许访问的 <code style="color:red">IP地址</code> 为正则的方式如<code style="color:red">ALLOW_IP=(^127\.0\.0\.1)</code>
+  允许访问的 <code style="color:red">IP地址</code>如<code style="color:red">ALLOW_IP=127.0.0.1</code>
 </li>
 <br>
 
