@@ -19,8 +19,6 @@ RUN apk add --no-cache --virtual .build-deps \
     && mkdir /Sub-Store/nginx \
     && npm install -g cnpm pm2 pnpm
 
-
-
 ENV FRONT_END="https://github.com/sub-store-org/Sub-Store-Front-End.git"
 ENV BACK_END="https://github.com/sub-store-org/Sub-Store.git"
 ENV DOKCER="https://github.com/dompling/Sub-Store-Docker.git"
