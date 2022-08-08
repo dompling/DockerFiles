@@ -1,4 +1,4 @@
-name: docker
+name: 构建Sub-Store Docker镜像
 
 on:
   push:
@@ -31,6 +31,7 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
+          platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
           context: ./
           file: ./Sub-Store/DockerFile
           push: true
