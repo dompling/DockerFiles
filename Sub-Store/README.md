@@ -50,11 +50,14 @@ ALLOW_IP：
 </li>
 <br>
 
+
+
 #### 常见问题
 
 1.部署成功之后访问方式为 DOMIAN 的写法<br>
 2.确保服务器的端口是联通的<br>
 3.限制，具体方法请自行网上搜索配置好后使用 v2ray 容器挂载到当前服务器，然后设置代理访问
+4.Surge for mac SSR 使用方法 在 mac 终端执行 sudo curl -L https://github.com/tindy2013/shadowsocks-static-binaries/raw/master/shadowsocksr-libev/macos/ssr-local -o /usr/local/bin/ssr-local && chmod +x /usr/local/bin/ssr-local
 #### 结束语
 
 > 感谢 [@Peng-YM](https://github.com/Peng-YM/Sub-Store) 大佬的无私奉献将代码开源
