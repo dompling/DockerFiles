@@ -1,0 +1,20 @@
+version: '2.2'
+services:
+  substore:
+    image: domplingyaya/sub-store:dev
+    container_name: Substore
+    build:
+         context: .
+         dockerfile: DockerFile
+   #network_mode: docker-net
+    restart: always
+    shm_size: 2gb
+    ports:
+      - "6080:6080"
+    volumes:
+      - $PWD/backend:/Sub-Store/backend
+      - $PWD/Front:/Sub-Store/Front
+    environment:
+      # - DOMAIN=http://sub-store.com sub-store 访问域名
+      # - ALLOW_IP=127.0.0.1 sub-store 访问限制IP
+      - TZ=Asia/Shanghai
