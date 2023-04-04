@@ -3,9 +3,6 @@ services:
   substore:
     image: domplingyaya/sub-store:dev
     container_name: Substore
-    build:
-         context: .
-         dockerfile: DockerFile
    #network_mode: docker-net
     restart: always
     shm_size: 2gb
