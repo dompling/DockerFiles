@@ -1,7 +1,6 @@
 version: '2.2'
 services:
   substore:
-    build: ./
     image: domplingyaya/sub-store:dev
     container_name: Substore
    #network_mode: docker-net
@@ -13,6 +12,6 @@ services:
       - $PWD/backend:/Sub-Store/backend
       - $PWD/Front:/Sub-Store/Front
     environment:
-      # - DOMAIN=http://sub-store.com sub-store 访问域名
-      # - ALLOW_IP=127.0.0.1 sub-store 访问限制IP
+      # - DOMAIN=http://sub-store.com #sub-store 访问域名
+      # - ALLOW_IP=127.0.0.1 sub-store #访问限制IP
       - TZ=Asia/Shanghai
