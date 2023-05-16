@@ -12,8 +12,7 @@
 version: '2.2'
 services:
   substore:
-    build: ./
-    image: domplingyaya/sub-store
+    image: domplingyaya/sub-store:dev
     container_name: Substore
    #network_mode: docker-net
     restart: always
