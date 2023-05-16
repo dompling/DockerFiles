@@ -12,17 +12,20 @@
 version: '2.2'
 services:
   substore:
-    image: domplingyaya/sub-store:dev
+    build: ./
+    image: domplingyaya/sub-store
     container_name: Substore
+   #network_mode: docker-net
     restart: always
     shm_size: 2gb
     ports:
       - "6080:6080"
     volumes:
-      - $PWD/backend:/Sub-Store/backend #映射的后端目录，含有缓存的接口数据
+      - $PWD/backend:/Sub-Store/backend
+      - $PWD/Front:/Sub-Store/Front
     environment:
-      - DOMAIN=http://sub-store.com
-      - ALLOW_IP=127.0.0.1  # 限制 IP访问，因为是公网访问，所以可以搭配 v2ray 之类的代理作为限制，也可以使用自己已经有的订阅地址的 ip，然后本地 vpn 软件建立相关访问的分流规则
+      # - DOMAIN=http://sub-store.com sub-store 访问域名
+      # - ALLOW_IP=127.0.0.1 sub-store 访问限制IP
       - TZ=Asia/Shanghai
 ```
 
