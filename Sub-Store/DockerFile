@@ -41,4 +41,5 @@ RUN cp -r /git/Front /Sub-Store/ \
 
 RUN chmod 777 /git/Docker/docker/sub-store.sh
 
+
 ENTRYPOINT ["/bin/sh","/git/Docker/docker/sub-store.sh" ]
