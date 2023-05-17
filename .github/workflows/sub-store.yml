@@ -1,9 +1,10 @@
 name: 构建Sub-Store Docker镜像
 
 on:
-push:
-  paths:
-    - "Sub-Store/**"
+  push:
+    paths:
+      - "Sub-Store/**"
+
 jobs:
   build:
     runs-on: ubuntu-latest
