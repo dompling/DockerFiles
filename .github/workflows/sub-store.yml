@@ -2,8 +2,6 @@ name: 构建Sub-Store Docker镜像
 
 on:
 push:
-  branches:
-    - "master"
   paths:
     - "Sub-Store/**"
 jobs:
