@@ -23,8 +23,8 @@ services:
       - $PWD/backend:/Sub-Store/backend
       - $PWD/Front:/Sub-Store/Front
     environment:
-      # - DOMAIN=http://sub-store.com sub-store 访问域名
-      # - ALLOW_IP=127.0.0.1 sub-store 访问限制IP
+      # - DOMAIN=http://sub-store.com # sub-store 访问域名
+      # - ALLOW_IP=127.0.0.1 # sub-store 访问限制IP 若注释则不限制访问
       - TZ=Asia/Shanghai
 ```
 
@@ -51,7 +51,6 @@ ALLOW_IP：
   允许访问的 <code style="color:red">IP地址</code>如<code style="color:red">ALLOW_IP=127.0.0.1</code>
 </li>
 <br>
-
 
 
 #### 常见问题
