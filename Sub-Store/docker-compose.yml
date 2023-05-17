@@ -13,5 +13,5 @@ services:
       - $PWD/Front:/Sub-Store/Front
     environment:
       - DOMAIN=http://127.0.0.1:6080 #sub-store 访问域名
-      # - ALLOW_IP=127.0.0.1 sub-store #访问限制IP
+      # - ALLOW_IP=127.0.0.1 sub-store #访问限制IP 若注释，则不限制访问
       - TZ=Asia/Shanghai
