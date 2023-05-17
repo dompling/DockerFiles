@@ -34,7 +34,7 @@ jobs:
           file: ./Sub-Store/DockerFile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/sub-store
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/sub-store:dev
 
       # 打印 docker 镜像 SHA256 Hash 值
       - name: Image digest
