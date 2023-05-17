@@ -12,6 +12,6 @@ services:
       - $PWD/backend:/Sub-Store/backend
       - $PWD/Front:/Sub-Store/Front
     environment:
-      # - DOMAIN=http://sub-store.com #sub-store 访问域名
+      - DOMAIN=http://127.0.0.1:6080 #sub-store 访问域名
       # - ALLOW_IP=127.0.0.1 sub-store #访问限制IP
       - TZ=Asia/Shanghai
