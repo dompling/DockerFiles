@@ -3,7 +3,7 @@ name: 构建Sub-Store Docker镜像
 on:
   push:
     paths:
-      - "Sub-Store/**"
+      - "Sub-Store/DockerFile"
 
 jobs:
   build:
