@@ -3,9 +3,10 @@ name: 构建Sub-Store Docker镜像
 on:
   push:
     branches:
-      - 'master'
+      - "master"
     paths:
-      - "Sub-Store/"
+      - "Sub-Store/**"
+
 jobs:
   build:
     runs-on: ubuntu-latest
