@@ -36,7 +36,6 @@ services:
   `docker-compose stop` 停止容器；  
   `docker-compose restart` 重启容器；  
   `docker-compose down` 停止并删除容器；
-
 <br>
 
 > 环境变量
