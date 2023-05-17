@@ -21,7 +21,6 @@ ENV FRONT_END="https://github.com/dompling/Sub-Store-Front-End.git"
 ENV BACK_END="https://github.com/dompling/Sub-Store.git"
 ENV DOKCER="https://github.com/dompling/Sub-Store-Docker.git"
 ENV DOMIAN="/"
-ENV TZ=Asia/Shanghai
 
 WORKDIR /Sub-Store
 
